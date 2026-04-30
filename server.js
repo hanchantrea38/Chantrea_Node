@@ -8,11 +8,6 @@ app.get('/', (req, res) => {
 })
 
 
-// list
-// app.get('/users', (req, res) => {
-//   res.send(users);
-// })
-
 app.get('/users', async (req, res) => {
   try {
     const [rows] = await db.execute('SELECT * FROM users');
@@ -21,16 +16,6 @@ app.get('/users', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-// create
-// app.post('/users', (req, res) => {
-//   const user = {
-//     id: Date.now(),
-//     name: req.body.name
-//   }
-//   users.push(user);
-//   res.status(201).send(user)
-// })
 
 app.post('/users', async (req, res) => {
   try {
@@ -54,16 +39,6 @@ app.post('/users', async (req, res) => {
   }
 });
 
-// update
-// app.put('/users/:id', (req, res) => {
-//   const id = parseInt(req.params.id);
-//   let user = users.find(u => u.id === id);
-//   if(!user) {
-//     return res.status(404).send({ error: 'User not found' })
-//   }
-//   user.name = req.body.name
-//   res.send(user)
-// })
 
 app.put('/users/:id', async (req, res) => {
   try {
@@ -83,19 +58,6 @@ app.put('/users/:id', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-
-// delete
-// app.delete('/users/:id', (req, res) => {
-//   const id = parseInt(req.params.id);
-//   const index = users.findIndex(u => u.id === id);
-//   // console.log(index);
-//   if(index === -1) {
-//     return res.status(404).send({ error: 'User not found' })
-//   }
-//   users.splice(index, 1);
-//   res.json({ message: 'User deleted successfully' })
-// })
 
 app.delete('/users/:id', async (req, res) => {
   try {
