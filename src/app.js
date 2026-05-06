@@ -1,20 +1,21 @@
 import express from "express";
 import userRoutes from "./routes/UserRoutes.js";
+import productRoutes from "./routes/ProductRoutes.js"
 
 const app = express();
 
-// Middleware
 app.use(express.json());
 
-// Routes (better prefix)
+// Routes
 app.use("/users", userRoutes);
+app.use("/products", productRoutes);
 
-// Root route (optional but useful)
+// Root route 
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// 404 handler
+// 404
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });

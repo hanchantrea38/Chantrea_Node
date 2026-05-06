@@ -6,7 +6,7 @@ const router = express.Router();
 // GET all users
 router.get("/", UserController.getUsers);
 
-// GET single user
+// GET user by id
 router.get("/:id", UserController.getUserById);
 
 // CREATE user
