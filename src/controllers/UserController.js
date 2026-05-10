@@ -1,5 +1,6 @@
 import User from "../models/user.js";
 import BaseController from "./BaseController.js";
+import UserService from "../services/UserService.js";
 
 class UserController {
   // GET all users
